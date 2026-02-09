@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wypłata</title>
+
+<style>
+body{
+  background:#001a33;
+  color:gold;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  padding:40px;
+}
+h1{color:#00ff99;margin-bottom:25px;}
+input,select{
+  width:80%;
+  max-width:380px;
+  padding:12px;
+  margin:12px 0;
+  border-radius:8px;
+  border:1px solid gold;
+  background:#111;
+  color:gold;
+}
+.amount{
+  font-size:26px;
+  font-weight:bold;
+  color:#00ff99;
+  margin:20px 0;
+}
+.btn{
+  background:linear-gradient(90deg,gold,#00ff99);
+  color:#000;
+  border:none;
+  padding:14px 32px;
+  border-radius:10px;
+  font-size:18px;
+  cursor:pointer;
+}
+.back{
+  display:block;
+  margin-top:25px;
+  color:#aaa;
+  text-decoration:none;
+}
+
+/* Popup */
+.popup-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  justify-content:center;
+  align-items:center;
+}
+.popup-box{
+  background:#111;
+  border:1px solid gold;
+  border-radius:18px;
+  padding:30px;
+  max-width:420px;
+  width:85%;
+  animation:pop .3s ease;
+}
+@keyframes pop{
+  from{transform:scale(.85);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.popup-box h2{color:#00ff99;margin-bottom:10px;}
+.popup-box p{color:#fff;margin-bottom:20px;}
+.popup-btn{
+  background:linear-gradient(90deg,gold,#00ff99);
+  border:none;
+  padding:12px 30px;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Wypłata środków</h1>
+
+<input type="text" placeholder="Imię i nazwisko">
+
+<select>
+  <option>Wybierz bank</option>
+  <option>PKO Bank Polski</option>
+  <option>mBank</option>
+  <option>ING Bank Śląski</option>
+  <option>Santander Bank Polska</option>
+  <option>Bank Pekao</option>
+  <option>Alior Bank</option>
+  <option>BNP Paribas</option>
+  <option>Millennium Bank</option>
+  <option>Credit Agricole</option>
+  <option>Revolut</option>
+</select>
+
+<input type="text" placeholder="Numer konta / IBAN">
+
+<div class="amount">0 PLN</div>
+
+<button class="btn" onclick="showPop()">Wypłać</button>
+
+<a href="index.html" class="back">⬅ Powrót</a>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <h2>Brak środków</h2>
+    <p>
+      Dokonaj inwestycji i uzyskaj zysk,<br>
+      aby móc dokonać wypłaty.
+    </p>
+    <button class="popup-btn" onclick="closePop()">OK</button>
+  </div>
+</div>
+
+<script>
+function showPop(){
+  document.getElementById("popup").style.display="flex";
+}
+function closePop(){
+  document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>
